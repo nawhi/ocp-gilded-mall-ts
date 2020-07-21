@@ -1,34 +1,28 @@
-OCPKatas - Katas for practising the Open-Closed Principle
-=========================================================
+# OCP Katas in TypeScript
+
+This is a migration of [chrisfcarroll's original](https://github.com/chrisfcarroll/OCPKatas) to TypeScript, Mocha and Chai with a couple of slight modifications.
+
+## Introduction
 
 The 4-minute-history : [cafe-encounter.net/p2158/three-historical-definitions-of-the-openclosed-principle-and-a-claim-that-its-pointless](https://www.cafe-encounter.net/p2158/three-historical-definitions-of-the-openclosed-principle-and-a-claim-that-its-pointless)
 
-tl;dr : "Software entities (classes, modules, functions, etc.) should be open for extension, but closed for
-modification"; that is, such an entity can allow its behaviour to be modified without altering its
-source code. The paradox is both unavoidable and hard. There have been at least three attempts to (re)define and (re)solve it.
+tl;dr : 
 
-Apparent implication: it should be possible to add functionality to a code base not by modifying
-the current code, but only by extending it.
+> Software entities (classes, modules, functions, etc.) should be open for extension, but closed for
+> modification 
 
-This is particularly important for components that are used by several client components but which
-must still be updated without forcing existing clients to be update. In fact this was exactly the 
-case that Bertrand Meyer was addressing when he set out the Open-Closed Principle. It's fair to say 
-that it's still a significant issue in software.
+In other words, you should be able to modify the behaviour of such an entity without altering its
+source code. This further implies that you should be able to add functionality to a code base not by modifying the current code, but only by extending it.
 
-This repo contains various katas which may help in learning ways of addressing this; and some 
-starter-projects for those katas.
+This repo contains a kata and starter project which may help to learn solutions to this. In the kata, 
 
-Rules for OCP Katas
-===================
+## Rules for OCP Katas
 
-1. Write the first failing test.
-Then write a factory that returns an object, or an aggregate of objects, that make the test pass. The factory 
-should be limited to creating objects and linking them together. No conditionals allowed.
-1.1 You may refactor until you declare "Ship!" After you've shipped, you can't change the code any more.
-
-2. Write the next failing test.
-Can you make it pass by changing the factory and/or creating a new class and nothing else? If yes, great! 
-Go back to 1. If not, refactor until you can.
+1. **Write the first failing test.** Then write a factory that returns an object, or an aggregate of objects, that make the test pass. (This is ) The factory should be limited to creating objects and linking them together. No conditionals allowed.
+2. **You may refactor until you declare "Ship!"** After you've shipped, you can't change the code any more.
+3. Write the next failing test.
+  Can you make it pass by changing the factory and/or creating a new class and nothing else? If yes, great! 
+  Go back to 1. If not, refactor until you can.
 
 There are 3 options for the Refactoring Rule:
 
@@ -50,12 +44,11 @@ to implement the next test just by changing the aggregate of objects that is ret
 
 
 
-Gilded Mall Specs
------------------
+## Gilded Mall Specs
 
-Hello and welcome to team Gilded Mall. As you know, we are a small shopping mall opening in a prime location in a 
-prominent city. We will house a growing number of stores, each of which will sell only the finest goods and services. 
-We will provide stock management software to all our tenants, catering to their common—and not so common—requirements.
+Hello and welcome to team Gilded Mall. As you know, we are a small shopping mall opening in a prime location in a prominent city. We will house a growing number of stores, each of which will sell only the finest goods and services. 
+
+We will provide stock management software to all our tenants, catering to their common—and not so common—requirements:
 
 1. All tenants want to record item name and price for all their stock. The stock list must update daily, 
 applying to the following rules.
@@ -67,10 +60,10 @@ depreciation (loss in stock value) in the past month.
 5. The Gilded Carrot sells fresh vegetables. It must always dispose of stock that it has held for 7 days.
 6. The food shops also want their monthly finance report to show the value of stock that was binned in the past month.
 
-Hints, Tips, Notes
-------------------
+## Hints, Tips, Notes
 
-The kata revolves around how you handle the combination of shared and not-shared requirements, so if time is limited don't spend it on getting the pricing rules correct for edge cases.
-It's acceptable for your factory to have a factory method named for each shop type (and probably the simplest way to meet the 'No conditionals in the factory' constraint). The challenge will be in how each method assembles its shop from shared components.
+The kata revolves around how you handle the combination of shared and not-shared requirements, so if time is limited don't spend it on getting the pricing rules correct for edge cases. 
+
+It's acceptable for your factory to have a factory method named for each shop type (and probably the simplest way to meet the 'No conditionals in the factory' constraint). The challenge will be in how each method assembles its shop from shared components. 
+
 Use simple test data. Just one or 2 stock items per shop should suffice.
-For the enthusiastic, try it in both a statically typed language and a dynamic one.
