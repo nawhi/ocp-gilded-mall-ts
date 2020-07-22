@@ -3,14 +3,14 @@ import { createGildedStockManager, GildedStockManager, StockItem } from '../src/
 
 describe('Gilded Stock Manager', () => {
   it('all tenants can record item name and price', () => {
-    const stockManager: GildedStockManager = createGildedStockManager();
-
-    const item: StockItem = {
-      name: 'Aged Brie',
-      price: 5,
-    };
-    stockManager.addItem(item);
-
-    expect(stockManager.stockList).to.eql([{ name: 'Aged Brie', price: 5 }]);
+    // const stockManager: GildedStockManager = createGildedStockManager();
+    //
+    // const item: StockItem = {
+    //   name: 'Aged Brie',
+    //   price: 5,
+    // };
+    // stockManager.addItem(item);
+    //
+    // expect(stockManager.stockList).to.eql([{ name: 'Aged Brie', price: 5 }]);
   });
 });
